@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play the Game</title>
+    <style>
+        .whole{
+            background-color: rgb(231, 231, 125);
+        }
+
+        .ttl{
+            font-family: cursive;
+            font-size:200%;
+            font-weight: 700;
+            text-align: center;
+            color: rgb(92, 92, 240);
+        }
+        
+        .LVL{
+            color:rgb(245, 105, 105);
+        }
+        
+        .form{
+            font-family: cursive;
+            text-align: center;
+            margin-top: 20px;
+            color:rgb(245, 105, 105);
+            font-size: xx-large;
+        }
+
+        .hint{
+            color: rgb(84, 43, 233);
+            text-align: center;
+        }
+
+        #result{
+            padding:20px;
+            background-color: black;
+        }
+
+    </style>
+</head>
+<body class = "whole">
+    <header class = "ttl">
+        <h1>Guess the food</h1>  
+        <h2 class = "LVL">LEVEL 2</h2>  
+    </header>
+    <center>
+        <img Id = "result" src="https://foodish-api.herokuapp.com/images/pasta/pasta26.jpg" width = 30%>
+    </center>
+    <script>
+        let l = 0;
+          function checkGuess() {
+          let myGuess = " ";
+          myGuess= guess.value;
+          myGuess=myGuess.toLocaleUpperCase();
+          if (myGuess === "PASTA" || myGuess === "NOODLES"){
+            if(confirm("Your Answer is right \nMove to next level?") == true)
+            {
+               window.close(); 
+               window.open("Webapp5.html");
+            }
+        } 
+          else{
+              alert("Your answer is wrong!!! \nTRY AGAIN")
+          }
+       }
+       submitGuess.addEventListener('click', checkGuess())
+    </script>  
+    <h2 class = "hint">HINT : _ A _ _ A</h2>
+    <form class = "form">
+        <label for="guess">My Guess</label>
+        <input type="text" id="guess">
+        <input type="submit" id="submitGuess" value="SUBMIT" onclick="checkGuess()">
+    </form>
+    <p Id="feedback"></p>
+    
+</body>
+</html>
